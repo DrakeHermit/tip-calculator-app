@@ -2,6 +2,7 @@
 
 :root {
   --light-grayish-cyan: hsl(185, 41%, 84%);
+  --white-color: #fff;
 }
 
 * {
@@ -10,11 +11,26 @@
   padding: 0;
 }
 
-body {
-  display: flex;
-  justify-content: center;
-  background-color: var(--light-grayish-cyan);
-  font-family: 'Space Mono', sans-serif;
-  font-size: 24px;
+img {
+  display: block;
+  height: 100%;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--light-grayish-cyan);
+  font-family: 'Space Mono', sans-serif;
+  /* font-size: 24px; */
+}
+
+.main__header {
+  margin-block: 3.125rem;
+}
+
+.main__body {
+  background-color: var(--white-color);
+  border-radius: 25px 25px 0 0;
+  padding: 2rem;
+}
