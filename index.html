@@ -22,18 +22,20 @@
       <h1 aria-label="Website Title"><img src="/images/logo.svg" /></h1>
     </header>
     <main class="main__body">
-      <div class="form__choices">
-        <form>
-          <label for="bill-price">
-            Bill
-            <input
-              type="number"
-              placeholder="$"
-              name="bill-price"
-              id="bill-price"
-            />
-          </label>
-        </form>
+      <div class="main__choices">
+        <label for="bill-price">
+          Bill
+        </label>
+        <input type="number" name="bill-price" id="bill-price" />
+        <label for="tip-selection">Select Tip %</label>
+        <div class="tip__grid">
+          <input type="button" value="5%" />
+          <input type="button" value="10%" />
+          <input type="button" value="15%" />
+          <input type="button" value="25%" />
+          <input type="button" value="50%" />
+          <input type="number" placeholder="Custom" />
+        </div>
       </div>
     </main>
   </body>

@@ -17,16 +17,6 @@ This is a solution to the [Tip calculator app challenge on Frontend Mentor](http
 
 ## Overview
 
-Your challenge is to build out this tip calculator app and get it looking as close to the design as possible.
-
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
-
-Your users should be able to:
-
-- View the optimal layout for the app depending on their device's screen size
-- See hover states for all interactive elements on the page
-- Calculate the correct tip and total cost of the bill per person
-
 ### The challenge
 
 Users should be able to:
@@ -43,7 +33,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [GitHub](https://your-solution-url.com)
+- Solution URL: [GitHub](https://github.com/DrakeHermit/tip-calculator-app)
 - Live Site URL: [Live Site](https://your-live-site-url.com)
 
 ## My process
