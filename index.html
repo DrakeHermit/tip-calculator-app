@@ -27,7 +27,7 @@
           Bill
         </label>
         <input type="number" name="bill-price" id="bill-price" />
-        <label for="tip-selection">Select Tip %</label>
+        <label class="tip__grid-label" for="tip-selection">Select Tip %</label>
         <div class="tip__grid">
           <input type="button" value="5%" />
           <input type="button" value="10%" />
@@ -36,6 +36,29 @@
           <input type="button" value="50%" />
           <input type="number" placeholder="Custom" />
         </div>
+        <label class="number-of-people" for="number-of-people"
+          >Number of People</label
+        >
+        <input type="number" name="number-of-people" />
+      </div>
+      <div class="finished__calculation">
+        <div class="tip__amount">
+          <div class="description">
+            <p>Tip Amount</p>
+            <p class="per-person">/ person</p>
+          </div>
+          <p id="tip-amount" class="tip-amount">$4.27</p>
+        </div>
+        <div class="tip__total">
+          <div class="description">
+            <p>Total</p>
+            <p class="per-person">/ person</p>
+          </div>
+          <p id="total-amount" class="tip-amount">$32.79</p>
+        </div>
+        <button id="reset-button" aria-label="Reset Button" class="button">
+          RESET
+        </button>
       </div>
     </main>
   </body>

@@ -6,6 +6,8 @@
   --input-color: #F3F9FA;
   --label-color: #5E7A7D;
   --primary-color: #00474B;
+  --per-person-color: #7F9D9F;
+  --secondary-color: #26C2AE;
 }
 
 * {
@@ -20,15 +22,31 @@ label {
   font-weight: 700;
 }
 
-input {
+input[type = 'number'] {
   font-size: 24px;
   border: none;
   border-radius: 5px;
+  padding: 0.5rem 0.8rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  text-align: right;
+  background-color: var(--input-color);
+}
+
+input[type = 'button'] {
+  font-size: 24px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
 }
 
 img {
   display: block;
   height: 100%;
+}
+
+.number-of-people {
+  margin-top: 2rem;
 }
 
 body {
@@ -37,11 +55,14 @@ body {
   align-items: center;
   background-color: var(--light-grayish-cyan);
   font-family: 'Space Mono', sans-serif;
-  /* font-size: 24px; */
 }
 
 .main__header {
   margin-block: 3.125rem;
+}
+
+.tip__grid-label {
+  margin: 2rem 0 1rem 0;
 }
 
 .main__body {
@@ -53,14 +74,6 @@ body {
   .main__choices {
     display: flex;
     flex-direction: column;
-
-    #bill-price {
-      padding: 0.5rem 0.8rem;
-      font-weight: 700;
-      color: var(--primary-color);
-      text-align: right;
-      background-color: var(--input-color);
-    }
 
     .tip__grid {
       display: grid;
@@ -81,6 +94,51 @@ body {
           padding-right: 1rem;
         }
       }
+    }
+  }
+
+  .finished__calculation {
+    background-color: var(--primary-color);
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin: 2rem 0 0 0;
+
+    .tip__amount {
+      margin-bottom: 1.5rem;
+    }
+
+    .tip-amount {
+      color: var(--secondary-color);
+      font-size: 2rem;
+    }
+
+    .per-person {
+      color: var(--per-person-color);
+      font-size: 13px;
+    }
+
+    .description {
+      color: var(--input-color);
+    }
+
+    .tip__amount, .tip__total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .button {
+      margin-top: 2rem;
+      border-radius: 5px;
+      background-color: var(--secondary-color);
+      color: var(--primary-color);
+      border: 0;
+      width: 100%;
+      padding: .6rem;
+      font-size: 20px;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
     }
   }
 }
