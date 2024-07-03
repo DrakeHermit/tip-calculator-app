@@ -23,10 +23,18 @@
     </header>
     <main class="main__body">
       <div class="main__choices">
-        <label for="bill-price">
-          Bill
-        </label>
-        <input type="number" name="bill-price" id="bill-price" />
+        <img src="/images/icon-dollar.svg" class="input__icon-bill" />
+        <div class="bill-group">
+          <label for="bill-price">
+            Bill
+          </label>
+          <input
+            type="number"
+            name="bill-price"
+            id="bill-price"
+            class="input__icon-bill-parent"
+          />
+        </div>
         <label class="tip__grid-label" for="tip-selection">Select Tip %</label>
         <div class="tip__grid">
           <input type="button" value="5%" />
@@ -36,10 +44,17 @@
           <input type="button" value="50%" />
           <input type="number" placeholder="Custom" />
         </div>
-        <label class="number-of-people" for="number-of-people"
-          >Number of People</label
-        >
-        <input type="number" name="number-of-people" />
+        <img src="/images/icon-person.svg" class="input__icon-people" />
+        <div class="number-of-people-group">
+          <label class="number-of-people" for="number-of-people"
+            >Number of People</label
+          >
+          <input
+            type="number"
+            name="number-of-people"
+            class="input__icon-people-parent"
+          />
+        </div>
       </div>
       <div class="finished__calculation">
         <div class="tip__amount">
