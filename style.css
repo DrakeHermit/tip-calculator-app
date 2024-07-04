@@ -26,8 +26,8 @@ label {
   position: absolute;
   width: 10px;
   height: 15.46px;
-  left: 50px;
-  top: 232px;
+  left: 15px;
+  top: 46px;
   z-index: 1;
 }
 
@@ -35,8 +35,8 @@ label {
   position: absolute;
   width: 13px;
   height: 16px;
-  top: 588px;
-  left: 50px;
+  top: 78px;
+  left: 15px;
   z-index: 1;
 }
 
@@ -92,7 +92,7 @@ body {
   background-color: var(--white-color);
   border-radius: 25px 25px 0 0;
   padding: 2rem;
-  width: 100%;
+  max-width: 100%;
 
   .bill-group, .number-of-people-group {
     display: flex;
@@ -107,7 +107,6 @@ body {
       display: grid;
       grid-template-columns: repeat(2, 9.164rem);
       gap: 1rem;
-      align-self: center;
 
       input[type = 'button'], input[type = 'number'] {
         padding-block: 0.63rem;
@@ -168,5 +167,40 @@ body {
       font-family: inherit;
       cursor: pointer;
     }
+  }
+}
+
+@media (min-width: 760px) {
+  .main__body {
+    display: flex;
+    border-radius: 25px;
+    padding: 48px;
+    gap: 2.5rem;
+  }
+
+  .main__choices {
+    margin-bottom: 0 !important;
+  }
+
+  .finished__calculation {
+    padding: 2.5rem !important;
+    width: 417px;
+    margin-top: 0 !important;
+  }
+
+  .tip__grid {
+    grid-template-columns: repeat(3, 117px) !important;
+  }
+
+  .button {
+    margin-top: 8rem !important;
+  }
+
+  .tip-amount {
+    font-size: 48px !important;
+  }
+
+  .input__icon-people{
+    top: 78px;
   }
 }
