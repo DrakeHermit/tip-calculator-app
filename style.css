@@ -8,6 +8,7 @@
   --primary-color: #00474B;
   --per-person-color: #7F9D9F;
   --secondary-color: #26C2AE;
+  --error-field: #E17052;
 }
 
 * {
@@ -15,6 +16,30 @@
   margin: 0;
   padding: 0;
 }
+
+/* Utility classes */
+.button-selected {
+  background-color: var(--secondary-color) !important;
+  color: var(--primary-color) !important;
+}
+
+.valid-selection {
+  border: 2px solid var(--secondary-color) !important;
+}
+
+.error-selection {
+  border: 2px solid var(--error-field) !important;
+}
+
+.error-message {
+  color: var(--error-field);
+  font-weight: 700;
+  top: 32px;
+  right: 2px;
+  position: absolute;
+}
+
+/* --------------- */
 
 label {
   color: var(--label-color);
@@ -27,7 +52,7 @@ label {
   width: 10px;
   height: 15.46px;
   left: 15px;
-  top: 46px;
+  top: 48px;
   z-index: 1;
 }
 
@@ -35,7 +60,7 @@ label {
   position: absolute;
   width: 13px;
   height: 16px;
-  top: 78px;
+  top: 79px;
   left: 15px;
   z-index: 1;
 }
@@ -84,8 +109,12 @@ body {
   margin-block: 3.125rem;
 }
 
-.tip__grid-label {
-  margin: 2rem 0 1rem 0;
+.bill-group {
+  margin-bottom: 2.5rem;
+}
+
+.number-of-people-group {
+  margin-top: .5rem;
 }
 
 .main__body {
@@ -99,87 +128,79 @@ body {
     flex-direction: column;
   }
 
-  .main__choices {
-    display: flex;
-    flex-direction: column;
+.tip__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 9.164rem);
+  gap: 1rem;
 
-    .tip__grid {
-      display: grid;
-      grid-template-columns: repeat(2, 9.164rem);
-      gap: 1rem;
-
-      input[type = 'button'], input[type = 'number'] {
-        padding-block: 0.63rem;
-        color: var(--input-color);
-        background-color: var(--primary-color);
-        font-weight: 700;
-
-        &:last-child {
-          color: var(--label-color);
-          background-color: var(--input-color);
-          text-align: right;
-          padding-right: 1rem;
-        }
-      }
-    }
-  }
-
-  .finished__calculation {
-    background-color: var(--primary-color);
-    padding: 1.5rem;
-    border-radius: 15px;
-    margin: 2rem 0 0 0;
-
-    .tip__amount {
-      margin-bottom: 1.5rem;
-    }
-
-    .tip-amount {
-      color: var(--secondary-color);
-      font-size: 2rem;
-    }
-
-    .per-person {
-      color: var(--per-person-color);
-      font-size: 13px;
-    }
-
-    .description {
+    input[type = 'button'], input[type = 'number'] {
+      padding-block: 0.63rem;
       color: var(--input-color);
-    }
-
-    .tip__amount, .tip__total {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .button {
-      margin-top: 2rem;
-      border-radius: 5px;
-      background-color: var(--secondary-color);
-      color: var(--primary-color);
-      border: 0;
-      width: 100%;
-      padding: .6rem;
-      font-size: 20px;
+      background-color: var(--primary-color);
       font-weight: 700;
-      font-family: inherit;
-      cursor: pointer;
+
+    &:last-child {
+      color: var(--label-color);
+      background-color: var(--input-color);
+      text-align: right;
+      padding-right: 1rem;
     }
   }
+}
+  
+.finished__calculation {
+  background-color: var(--primary-color);
+  padding: 1.5rem;
+  border-radius: 15px;
+  margin: 2rem 0 0 0;
+
+  .tip__amount {
+    margin-bottom: 1.5rem;
+  }
+
+  .tip-amount {
+    color: var(--secondary-color);
+    font-size: 2rem;
+  }
+
+  .per-person {
+    color: var(--per-person-color);
+    font-size: 13px;
+  }
+
+  .description {
+    color: var(--input-color);
+  }
+
+  .tip__amount, .tip__total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .button {
+    margin-top: 2rem;
+    border-radius: 5px;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border: 0;
+    width: 100%;
+    padding: .6rem;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+  }
+ }
 }
 
 @media (min-width: 760px) {
   .main__body {
     display: flex;
     border-radius: 25px;
-    padding: 48px;
-    gap: 2.5rem;
-  }
-
-  .main__choices {
-    margin-bottom: 0 !important;
+    padding: 2rem;
+    gap: 2rem;
+    align-items: center;
   }
 
   .finished__calculation {
@@ -190,6 +211,10 @@ body {
 
   .tip__grid {
     grid-template-columns: repeat(3, 117px) !important;
+
+    input[type = 'number'] {
+      font-size: 20px;
+    }
   }
 
   .button {
@@ -201,6 +226,10 @@ body {
   }
 
   .input__icon-people{
-    top: 78px;
+    top: 80px;
+  }
+
+  .input__icon-bill {
+    top: 49px;
   }
 }

@@ -32,17 +32,17 @@
             type="number"
             name="bill-price"
             id="bill-price"
-            class="input__icon-bill-parent"
+            class="input__icon-bill-parent valid-selection"
           />
         </div>
         <label class="tip__grid-label" for="tip-selection">Select Tip %</label>
         <div class="tip__grid">
-          <input type="button" value="5%" />
-          <input type="button" value="10%" />
-          <input type="button" value="15%" />
-          <input type="button" value="25%" />
-          <input type="button" value="50%" />
-          <input type="number" placeholder="Custom" />
+          <input type="button" value="5%" name="tip-selection" />
+          <input type="button" value="10%" name="tip-selection" />
+          <input type="button" value="15%" name="tip-selection" />
+          <input type="button" value="25%" name="tip-selection" />
+          <input type="button" value="50%" name="tip-selection" />
+          <input type="number" placeholder="Custom" name="tip-selection" />
         </div>
         <div class="number-of-people-group">
           <img src="/images/icon-person.svg" class="input__icon-people" />
@@ -52,8 +52,9 @@
           <input
             type="number"
             name="number-of-people"
-            class="input__icon-people-parent"
+            class="input__icon-people-parent error-selection"
           />
+          <p class="error-message">Can't be zero</p>
         </div>
       </div>
       <div class="finished__calculation">
