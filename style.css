@@ -9,6 +9,8 @@
   --per-person-color: #7F9D9F;
   --secondary-color: #26C2AE;
   --error-field: #E17052;
+  --inactive-button: #0D686D;
+  --inactive-button-text: #00474B;
 }
 
 * {
@@ -37,6 +39,12 @@
   top: 32px;
   right: 2px;
   position: absolute;
+}
+
+button:disabled {
+  background-color: var(--inactive-button) !important;
+  color: var(--inactive-button-text) !important;
+  cursor: not-allowed !important;
 }
 
 /* --------------- */

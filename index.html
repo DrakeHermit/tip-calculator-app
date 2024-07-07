@@ -22,40 +22,50 @@
       <h1 aria-label="Website Title"><img src="/images/logo.svg" /></h1>
     </header>
     <main class="main__body">
-      <div class="main__choices">
-        <div class="bill-group">
-          <img src="/images/icon-dollar.svg" class="input__icon-bill" />
-          <label for="bill-price">
-            Bill
-          </label>
-          <input
-            type="number"
-            name="bill-price"
-            id="bill-price"
-            class="input__icon-bill-parent"
-          />
-        </div>
-        <label class="tip__grid-label" for="tip-selection">Select Tip %</label>
-        <div class="tip__grid">
-          <input type="button" value="5%" name="tip-selection" />
-          <input type="button" value="10%" name="tip-selection" />
-          <input type="button" value="15%" name="tip-selection" />
-          <input type="button" value="25%" name="tip-selection" />
-          <input type="button" value="50%" name="tip-selection" />
-          <input type="number" placeholder="Custom" name="tip-selection" />
-        </div>
-        <div class="number-of-people-group">
-          <img src="/images/icon-person.svg" class="input__icon-people" />
-          <label class="number-of-people" for="number-of-people"
-            >Number of People</label
+      <form novalidate id="form">
+        <div class="main__choices">
+          <div class="bill-group">
+            <img src="/images/icon-dollar.svg" class="input__icon-bill" />
+            <label for="bill-price">
+              Bill
+            </label>
+            <input
+              type="number"
+              name="bill-price"
+              id="bill-price"
+              class="input__icon-bill-parent"
+            />
+          </div>
+          <label class="tip__grid-label" for="tip-selection"
+            >Select Tip %</label
           >
-          <input
-            type="number"
-            name="number-of-people"
-            class="input__icon-people-parent"
-          />
+          <div class="tip__grid">
+            <input type="button" value="5%" name="tip-selection" />
+            <input type="button" value="10%" name="tip-selection" />
+            <input type="button" value="15%" name="tip-selection" />
+            <input type="button" value="25%" name="tip-selection" />
+            <input type="button" value="50%" name="tip-selection" />
+            <input
+              type="number"
+              placeholder="Custom"
+              name="tip-selection"
+              id="custom-input"
+            />
+          </div>
+          <div class="number-of-people-group">
+            <img src="/images/icon-person.svg" class="input__icon-people" />
+            <label class="number-of-people" for="number-of-people"
+              >Number of People</label
+            >
+            <input
+              type="number"
+              name="number-of-people"
+              id="number-of-people"
+              class="input__icon-people-parent"
+            />
+          </div>
         </div>
-      </div>
+      </form>
       <div class="finished__calculation">
         <div class="tip__amount">
           <div class="description">
@@ -71,7 +81,13 @@
           </div>
           <p id="total-amount" class="tip-amount">$0.00</p>
         </div>
-        <button id="reset-button" aria-label="Reset Button" class="button">
+        <button
+          type="button"
+          id="reset-button"
+          aria-label="Reset Button"
+          class="button"
+          disabled
+        >
           RESET
         </button>
       </div>
