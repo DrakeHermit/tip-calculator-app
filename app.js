@@ -6,6 +6,8 @@ const resetBtn = document.getElementById("reset-button");
 const billPrice = document.getElementById("bill-price");
 const numberOfPeople = document.getElementById("number-of-people");
 const formData = document.getElementById("form");
+const tipAmountPerPersonEl = document.getElementById("tip-amount-per-person");
+const totalPerPersonEl = document.getElementById("total-amount");
 
 // Logic to enable/disable the reset button
 billPrice.addEventListener("input", (e) => {
@@ -18,6 +20,15 @@ billPrice.addEventListener("input", (e) => {
   }
 });
 
+const calculateTip = (bill, tipPercentage, numberOfPeople) => {
+  let tipInPercentage = tipPercentage / 100;
+  let tipAmountPerPerson =
+    Math.floor((tipInPercentage / numberOfPeople) * bill * 100) / 100;
+  let totalPerPerson = bill / numberOfPeople + tipAmountPerPerson;
+
+  return { tipAmountPerPerson, totalPerPerson };
+};
+
 const submitForm = (e) => {
   e.preventDefault();
 
@@ -29,7 +40,20 @@ const submitForm = (e) => {
     formDataEntries[key] = +value;
   });
 
-  console.log(formDataEntries);
+  // Extract the data from the object
+  const bill = formDataEntries["bill-price"];
+  const tipPercentage = formDataEntries["tip-selection"];
+  const peopleCount = formDataEntries["number-of-people"];
+
+  calculateTip(bill, tipPercentage, peopleCount);
+  const { tipAmountPerPerson, totalPerPerson } = calculateTip(
+    bill,
+    tipPercentage,
+    peopleCount
+  );
+
+  tipAmountPerPersonEl.innerText = `$${tipAmountPerPerson}`;
+  totalPerPersonEl.innerText = `$${totalPerPerson}`;
 };
 
 resetBtn.addEventListener("click", submitForm);
