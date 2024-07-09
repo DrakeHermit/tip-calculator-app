@@ -8,6 +8,9 @@ const numberOfPeople = document.getElementById("number-of-people");
 const formData = document.getElementById("form");
 const tipAmountPerPersonEl = document.getElementById("tip-amount-per-person");
 const totalPerPersonEl = document.getElementById("total-amount");
+const numberOfPeopleGroup = document.querySelector(".number-of-people-group");
+
+let errorMessage;
 
 // Logic to enable/disable the reset button
 billPrice.addEventListener("input", (e) => {
@@ -29,6 +32,47 @@ const calculateTip = (bill, tipPercentage, numberOfPeople) => {
   return { tipAmountPerPerson, totalPerPerson };
 };
 
+const updateDOM = (bill, tipPercentage, peopleCount) => {
+  const { tipAmountPerPerson, totalPerPerson } = calculateTip(
+    bill,
+    tipPercentage,
+    peopleCount
+  );
+
+  tipAmountPerPersonEl.innerText = `$${tipAmountPerPerson}`;
+  totalPerPersonEl.innerText = `$${totalPerPerson}`;
+};
+
+const handleErrorState = (bill, tipPercentage, peopleCount) => {
+  if (numberOfPeople.value.trim() === "") {
+    numberOfPeople.classList.add("error-selection");
+    billPrice.classList.add("valid-selection");
+    customBtnInput.classList.add("valid-selection");
+    createErrorMessage();
+  } else {
+    updateDOM(bill, tipPercentage, peopleCount);
+  }
+};
+
+const removeFieldValidation = () => {
+  numberOfPeople.classList.remove("error-selection");
+  billPrice.classList.remove("valid-selection");
+  customBtnInput.classList.remove("valid-selection");
+
+  if (errorMessage) {
+    errorMessage.remove();
+    errorMessage = null;
+  }
+};
+
+const createErrorMessage = () => {
+  errorMessage = document.createElement("p");
+  errorMessage.textContent = "Can't be zero";
+  errorMessage.classList.add("error-message");
+
+  numberOfPeopleGroup.appendChild(errorMessage);
+};
+
 const submitForm = (e) => {
   e.preventDefault();
 
@@ -45,18 +89,11 @@ const submitForm = (e) => {
   const tipPercentage = formDataEntries["tip-selection"];
   const peopleCount = formDataEntries["number-of-people"];
 
-  calculateTip(bill, tipPercentage, peopleCount);
-  const { tipAmountPerPerson, totalPerPerson } = calculateTip(
-    bill,
-    tipPercentage,
-    peopleCount
-  );
-
-  tipAmountPerPersonEl.innerText = `$${tipAmountPerPerson}`;
-  totalPerPersonEl.innerText = `$${totalPerPerson}`;
+  handleErrorState(bill, tipPercentage, peopleCount);
 };
 
 resetBtn.addEventListener("click", submitForm);
+numberOfPeople.addEventListener("input", removeFieldValidation);
 
 tipSelectionBtns.forEach((btn) =>
   btn.addEventListener("click", (e) => {
