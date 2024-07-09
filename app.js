@@ -27,7 +27,8 @@ const calculateTip = (bill, tipPercentage, numberOfPeople) => {
   let tipInPercentage = tipPercentage / 100;
   let tipAmountPerPerson =
     Math.floor((tipInPercentage / numberOfPeople) * bill * 100) / 100;
-  let totalPerPerson = bill / numberOfPeople + tipAmountPerPerson;
+  let totalPerPerson =
+    Math.floor((bill / numberOfPeople + tipAmountPerPerson) * 100) / 100;
 
   return { tipAmountPerPerson, totalPerPerson };
 };
