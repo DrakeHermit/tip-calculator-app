@@ -34,7 +34,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [GitHub](https://github.com/DrakeHermit/tip-calculator-app)
-- Live Site URL: [Live Site](https://your-live-site-url.com)
+- Live Site URL: [Live Site](https://drakehermit-tip-calculator.netlify.app/)
 
 ## My process
 
