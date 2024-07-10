@@ -20,6 +20,7 @@ billPrice.addEventListener("input", (e) => {
     resetBtn.innerText = "Submit";
   } else {
     resetBtn.disabled = true;
+    resetBtn.innerText = "RESET";
   }
 });
 
@@ -50,6 +51,8 @@ const handleErrorState = (bill, tipPercentage, peopleCount) => {
     billPrice.classList.add("valid-selection");
     customBtnInput.classList.add("valid-selection");
     createErrorMessage();
+  } else if (customBtnInput.value.trim() === "") {
+    customBtnInput.classList.add("error-selection");
   } else {
     updateDOM(bill, tipPercentage, peopleCount);
   }
@@ -74,9 +77,22 @@ const createErrorMessage = () => {
   numberOfPeopleGroup.appendChild(errorMessage);
 };
 
-const submitForm = (e) => {
-  e.preventDefault();
+const handleResetAfterSubmit = () => {
+  form.reset();
+  resetBtn.disabled = true;
+  tipAmountPerPersonEl.innerText = "$0.00";
+  totalPerPersonEl.innerText = "$0.00";
+  tipSelectionBtns.forEach((btn) => {
+    btn.classList.remove("button-selected");
+  });
+  numberOfPeople.classList.remove("error-selection");
+  billPrice.classList.remove("valid-selection");
+  customBtnInput.classList.remove("valid-selection");
 
+  errorMessage.remove();
+};
+
+const handleSubmit = () => {
   const formDataValues = new FormData(formData);
 
   const formDataEntries = {};
@@ -91,9 +107,20 @@ const submitForm = (e) => {
   const peopleCount = formDataEntries["number-of-people"];
 
   handleErrorState(bill, tipPercentage, peopleCount);
+
+  resetBtn.textContent = "RESET";
 };
 
-resetBtn.addEventListener("click", submitForm);
+const mainActions = (e) => {
+  e.preventDefault();
+  if (resetBtn.textContent === "RESET") {
+    handleResetAfterSubmit();
+  } else {
+    handleSubmit();
+  }
+};
+
+resetBtn.addEventListener("click", mainActions);
 numberOfPeople.addEventListener("input", removeFieldValidation);
 
 tipSelectionBtns.forEach((btn) =>
