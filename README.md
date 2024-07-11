@@ -51,7 +51,7 @@ Users should be able to:
 
 ### What I learned
 
-I learned a ton working on this challenge, and I really tested my knowledge with applying either submit or reset state based on the situatio. Is it a perfect solution not by a long shot, but I am actually proud of myself for being able to make it work the way I wanted it to work. I also learned that by writing CSS poorly you will end up with a lot of !important statements, but that is something I am going to keep an eye on in the next challenges I work on. CSS wise even though it's not perfect it looks decently good.
+I learned a ton working on this challenge, and I really tested my knowledge with applying either submit or reset state based on the situation. Is it a perfect solution not by a long shot, but I am actually proud of myself for being able to make it work the way I wanted it to work. I also learned that by writing CSS poorly you will end up with a lot of !important statements, but that is something I'm going to keep an eye on in the next challenges I work on. CSS wise even though it's not perfect it looks decently good.
 
 ### Continued development
 
