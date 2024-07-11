@@ -46,13 +46,17 @@ const updateDOM = (bill, tipPercentage, peopleCount) => {
 };
 
 const handleErrorState = (bill, tipPercentage, peopleCount) => {
-  if (numberOfPeople.value.trim() === "") {
+  if (
+    numberOfPeople.value.trim() === "" &&
+    customBtnInput.value.trim() === ""
+  ) {
     numberOfPeople.classList.add("error-selection");
     billPrice.classList.add("valid-selection");
-    customBtnInput.classList.add("valid-selection");
-    createErrorMessage();
-  } else if (customBtnInput.value.trim() === "") {
     customBtnInput.classList.add("error-selection");
+    createErrorMessage();
+  } else if (numberOfPeople.value.trim() === "") {
+    numberOfPeople.classList.add("error-selection");
+    createErrorMessage();
   } else {
     updateDOM(bill, tipPercentage, peopleCount);
   }
@@ -62,6 +66,7 @@ const removeFieldValidation = () => {
   numberOfPeople.classList.remove("error-selection");
   billPrice.classList.remove("valid-selection");
   customBtnInput.classList.remove("valid-selection");
+  customBtnInput.classList.remove("error-selection");
 
   if (errorMessage) {
     errorMessage.remove();
@@ -85,11 +90,7 @@ const handleResetAfterSubmit = () => {
   tipSelectionBtns.forEach((btn) => {
     btn.classList.remove("button-selected");
   });
-  numberOfPeople.classList.remove("error-selection");
-  billPrice.classList.remove("valid-selection");
-  customBtnInput.classList.remove("valid-selection");
-
-  errorMessage.remove();
+  removeFieldValidation();
 };
 
 const handleSubmit = () => {
